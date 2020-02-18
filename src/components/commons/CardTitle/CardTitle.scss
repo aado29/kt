@@ -1,0 +1,16 @@
+$yellow: #eaaa00;
+
+.card__title {
+  padding-bottom: 2rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    background: $yellow;
+    bottom: 0;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 60px;
+  }
+}
