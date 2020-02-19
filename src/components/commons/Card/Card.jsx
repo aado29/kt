@@ -12,7 +12,7 @@ const Card = props => {
 
   return (
     <article
-      className="card  flex flex-col justify-end items-baseline m-4 p-4 md:p-12 rounded-lg hover:bg-blue-500 text-white bg-cover"
+      className="card flex flex-col justify-end items-baseline m-4 p-4 md:p-12 rounded-lg text-white bg-cover"
       style={{ backgroundImage: `url(${cardBg})` }}
     >
       {children}

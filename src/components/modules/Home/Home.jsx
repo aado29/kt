@@ -15,8 +15,8 @@ const Home = () => {
   };
 
   return (
-    <section className="container flex max-w-6xl mx-auto py-20">
-      <div className="w-1/2">
+    <section className="container flex flex-col md:flex-row max-w-6xl mx-auto md:py-20">
+      <div className="md:w-1/2">
         <Card cardBg={BgEquipment}>
           <CardTitle>Tracking Equipos</CardTitle>
           <p className="card__description text-sm mb-8">
@@ -27,14 +27,14 @@ const Home = () => {
           </p>
           <Link
             to="#"
-            className="card__button transition duration-300 ease py-4 px-16 text-sm uppercase font-bold rounded-full border border-solid border-white"
+            className="card__button transition duration-300 ease py-4 lg:px-16 text-sm uppercase font-bold rounded-full lg:border border-solid border-white"
           >
             Ver más{' '}
             <FontAwesomeIcon icon={faArrowRight} className="card__icon ml-2" />
           </Link>
         </Card>
       </div>
-      <div className="w-1/2">
+      <div className="md:w-1/2">
         <Card cardBg={BgParts}>
           <CardTitle>Tracking Repuestos</CardTitle>
           <p className="card__description text-sm mb-8">
@@ -45,7 +45,7 @@ const Home = () => {
           </p>
           <Link
             to="#"
-            className="card__button transition duration-300 ease py-4 px-16 text-sm uppercase font-bold rounded-full border border-solid border-white"
+            className="card__button transition duration-300 ease py-4 lg:px-16 text-sm uppercase font-bold rounded-full lg:border border-solid border-white"
           >
             Ver más{' '}
             <FontAwesomeIcon icon={faArrowRight} className="card__icon ml-2" />

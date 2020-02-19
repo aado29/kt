@@ -1,9 +1,6 @@
 $yellow: #eaaa00;
 
 .card__title {
-  padding-bottom: 2rem;
-  position: relative;
-
   &::after {
     content: '';
     background: $yellow;
