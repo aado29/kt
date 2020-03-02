@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import Home from '../../components/sections/Home/Home';
 
 const HomeView = () => {
@@ -8,7 +7,6 @@ const HomeView = () => {
     <main className="page page--home">
       <Header name="Francisca Carrasco" />
       <Home />
-      <Footer />
     </main>
   );
 };
