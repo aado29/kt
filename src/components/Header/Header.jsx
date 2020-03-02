@@ -13,10 +13,7 @@ const layout = layoutGenerator({
   desktop: 1024
 });
 
-const OnMobile = layout.is('mobile');
 const OnAtLeastTablet = layout.isAtLeast('tablet');
-const OnAtMostPhablet = layout.isAtMost('phablet');
-const OnDesktop = layout.is('desktop');
 
 const Header = props => {
   const { name } = props;
@@ -44,19 +41,24 @@ const Header = props => {
             <Button>Repuestos</Button>
           </OnAtLeastTablet>
         </div>
-        <div className="profile flex items-center">
+        <div
+          className="profile flex items-center hover:text-blue-500 cursor-pointer"
+          onMouseEnter={handleToggle}
+          onMouseLeave={handleToggle}
+        >
           <div className="profile__avatar flex items-center justify-center bg-yellow-600 uppercase text-white rounded-full w-10 h-10">
             {username()}
           </div>
-          <div
-            className="relative text-sm hover:text-blue-500 py-3 cursor-pointer"
-            onMouseEnter={handleToggle}
-            onMouseLeave={handleToggle}
-          >
-            <span className="mx-4">{name}</span>
-            <FontAwesomeIcon icon={faChevronDown} className="text-yellow-600" />
+          <div className="relative text-sm py-3">
+            <OnAtLeastTablet>
+              <span className="ml-4">{name}</span>
+            </OnAtLeastTablet>
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              className="text-yellow-600 ml-3"
+            />
             <div
-              className={`profile transition duration-300 ease-in-out px-4 py-6 rounded-lg bg-white absolute z-50 right-0 bottom-0 w-full transform translate-y-full shadow-md ${
+              className={`profile transition duration-300 ease-in-out px-4 py-6 rounded-lg bg-white absolute z-50 right-0 bottom-0 w-40 md:w-full transform translate-y-full shadow-md ${
                 toggle ? 'visible' : 'invisible'
               }`}
             >
