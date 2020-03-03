@@ -58,9 +58,14 @@ class FormPassword extends React.Component {
             </div>
             <div className="flex flex-col">
               <button
+<<<<<<< HEAD
                 className={`transition duration-300 ease-in-out py-4 lg:px-16 text-sm uppercase font-bold rounded-full border border-solid border-yellow-500 bg-yellow-500 hover:bg-transparent text-white hover:text-yellow-500  mb-6 ${!email ? 'cursor-not-allowed opacity-50' : '' }`}
                 type="submit"
                 disabled={!email}
+=======
+                className="transition duration-300 ease-in-out py-4 lg:px-16 text-sm uppercase font-bold rounded-full border border-solid border-yellow-500 bg-yellow-500 hover:bg-transparent text-white hover:text-yellow-500  mb-6"
+                type="submit"
+>>>>>>> 9c8621105edcefee98972ae49b1c71ce01b58823
               >
                 Enviar
               </button>
