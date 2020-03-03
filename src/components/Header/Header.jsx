@@ -37,8 +37,10 @@ const Header = props => {
         <div className="flex items-center">
           <Logo />
           <OnAtLeastTablet>
-            <Button>Equipos</Button>
-            <Button>Repuestos</Button>
+            <div className="ml-10">
+              <Button>Equipos</Button>
+              <Button>Repuestos</Button>
+            </div>
           </OnAtLeastTablet>
         </div>
         <div
@@ -46,7 +48,7 @@ const Header = props => {
           onMouseEnter={handleToggle}
           onMouseLeave={handleToggle}
         >
-          <div className="profile__avatar flex items-center justify-center bg-yellow-600 uppercase text-white rounded-full w-10 h-10">
+          <div className="profile__avatar flex items-center justify-center bg-yellow-500 uppercase text-white rounded-full w-10 h-10">
             {username()}
           </div>
           <div className="relative text-sm py-3">
