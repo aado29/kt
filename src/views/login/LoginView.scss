@@ -1,0 +1,20 @@
+.page {
+  &--login {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      background-color: #0e1271;
+      border-radius: 0.5rem;
+      // content: '';
+      height: 100%;
+      left: 0;
+      opacity: 0.75;
+      position: absolute;
+      top: 0;
+      transition: all 0.3s ease-in-out;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}
