@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Footer from 'components/Footer/Footer';
 import LoginView from './views/login/LoginView';
-import LoginPasswordView from './views/login/LoginPasswordView';
+import PasswordView from './views/login/PasswordView';
+import PasswordSendView from './views/login/PasswordSendView';
 import HomeView from './views/home/HomeView';
 import EquipmentView from './views/equipment/EquipmentView';
 import PartsView from './views/parts/PartsView';
@@ -14,7 +15,8 @@ function App() {
       <div className="App">
         <Route exact path="/" component={HomeView} />
         <Route path="/login" component={LoginView} />
-        <Route path="/password-recovery" component={LoginPasswordView} />
+        <Route path="/password-recovery" component={PasswordView} />
+        <Route path="/password-send" component={PasswordSendView} />
         <Route path="/equipos" component={EquipmentView} />
         <Route path="/repuestos" component={PartsView} />
         <Footer />

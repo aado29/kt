@@ -1,8 +1,9 @@
 $yellow: #eaaa00;
 
 .hero {
-  position: relative;
+  background-position: center;
   color: white;
+  position: relative;
 
   &::before {
     background-color: #0e1271;

@@ -57,7 +57,7 @@ const Header = props => {
             </OnAtLeastTablet>
             <FontAwesomeIcon
               icon={faChevronDown}
-              className="text-yellow-600 ml-3"
+              className="text-yellow-500 ml-3"
             />
             <div
               className={`profile transition duration-300 ease-in-out px-4 py-6 rounded-lg bg-white absolute z-50 right-0 bottom-0 w-40 md:w-full transform translate-y-full shadow-md ${
@@ -67,7 +67,7 @@ const Header = props => {
               Cerrar sesión{' '}
               <FontAwesomeIcon
                 icon={faSignOutAlt}
-                className="text-yellow-600 ml-2"
+                className="text-yellow-500 ml-2"
               />
             </div>
           </div>

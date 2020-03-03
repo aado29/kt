@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from 'components/commons/Logo/Logo';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class PasswordForm extends React.Component {
   constructor() {
@@ -16,6 +16,7 @@ class PasswordForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log('email', this.state.email);
+    this.props.history.push('/password-send')
   };
 
   handleOnChange = el => {
@@ -78,4 +79,4 @@ class PasswordForm extends React.Component {
   }
 }
 
-export default PasswordForm;
+export default withRouter(PasswordForm);
