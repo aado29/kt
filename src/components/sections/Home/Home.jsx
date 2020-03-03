@@ -44,7 +44,7 @@ const Home = () => {
             Eveniet, magni? Hic, dicta?
           </p>
           <Link
-            to="#"
+            to="/repuestos"
             className="card__button transition duration-300 ease py-4 lg:px-16 text-sm uppercase font-bold rounded-full lg:border border-solid border-white"
           >
             Ver más{' '}

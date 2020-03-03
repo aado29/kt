@@ -5,6 +5,7 @@ import Footer from 'components/Footer/Footer';
 import LoginView from './views/login/LoginView';
 import HomeView from './views/home/HomeView';
 import EquipmentView from './views/equipment/EquipmentView';
+import PartsView from './views/parts/PartsView';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/" component={HomeView} />
         <Route path="/login" component={LoginView} />
         <Route path="/equipos" component={EquipmentView} />
+        <Route path="/repuestos" component={PartsView} />
         <Footer />
       </div>
     </Router>

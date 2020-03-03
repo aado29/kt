@@ -38,8 +38,8 @@ const Header = props => {
           <Logo />
           <OnAtLeastTablet>
             <div className="ml-10">
-              <Button>Equipos</Button>
-              <Button>Repuestos</Button>
+              <Button url="equipos">Equipos</Button>
+              <Button url="repuestos">Repuestos</Button>
             </div>
           </OnAtLeastTablet>
         </div>

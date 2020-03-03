@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../../Hero/Hero';
 
-import bgEquipment from 'assets/images/hero-equipment.png';
+import bgEquipment from 'assets/images/bg-equipment.png';
 import logo1 from 'assets/images/logos/CMA.png';
 import logo2 from 'assets/images/logos/K-Line.png';
 import logo3 from 'assets/images/logos/NYK.png';
