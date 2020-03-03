@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-class FormPassword extends React.Component {
+class PasswordForm extends React.Component {
   constructor() {
     super();
 
@@ -78,4 +78,4 @@ class FormPassword extends React.Component {
   }
 }
 
-export default FormPassword;
+export default PasswordForm;

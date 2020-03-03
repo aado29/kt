@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Button = props => {
-  const { children, url } = props;
+
+const Button = ({ children, url }) => {
   return (
     <NavLink
       to={`/${url}`}
@@ -12,6 +13,11 @@ const Button = props => {
       {children}
     </NavLink>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.node,
+  url: PropTypes.string.isRequired
 };
 
 export default Button;
