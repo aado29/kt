@@ -8,7 +8,7 @@ import { faChevronDown, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = props => {
-  const { name } = props;
+  const { name, withOutNav } = props;
 
   const [toggle, setToggle] = useState(false);
 
@@ -34,7 +34,7 @@ const Header = props => {
           <Logo />
           <OnAtLeastTablet>
             <div className="ml-10">
-              <Navigation />
+              <Navigation withOutNav={withOutNav} />
             </div>
           </OnAtLeastTablet>
         </div>

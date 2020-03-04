@@ -3,11 +3,16 @@ import Button from 'components/commons/Button/Button';
 
 import './Navigation.scss';
 
-const Navigation = () => {
+const Navigation = props => {
+  const { withOutNav } = props;
   return (
     <>
-      <Button url="equipos">Equipos</Button>
-      <Button url="repuestos">Repuestos</Button>
+      {!withOutNav && (
+        <>
+          <Button url="equipos">Equipos</Button>
+          <Button url="repuestos">Repuestos</Button>{' '}
+        </>
+      )}
     </>
   );
 };
