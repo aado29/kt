@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
-import Button from '../commons/Button/Button';
-import Logo from '../commons/Logo/Logo';
-import { layoutGenerator } from 'react-break';
+import { withRouter } from 'react-router-dom';
+import Logo from 'components/commons/Logo/Logo';
+import Navigation from 'components/Navigation/Navigation';
+import { OnAtLeastTablet } from 'utils/layoutGenerator';
 import { faChevronDown, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const layout = layoutGenerator({
-  mobile: 0,
-  phablet: 550,
-  tablet: 768,
-  desktop: 1024
-});
-
-const OnAtLeastTablet = layout.isAtLeast('tablet');
 
 const Header = props => {
   const { name } = props;
@@ -24,11 +16,15 @@ const Header = props => {
     setToggle(!toggle);
   };
 
-  const username = () => {
+  const getAcronymUsername = () => {
     const str = name;
     const matches = str.match(/\b(\w)/g);
     const acronym = matches.join('');
     return acronym;
+  };
+
+  const handleLogout = () => {
+    props.history.push('/login');
   };
 
   return (
@@ -38,8 +34,7 @@ const Header = props => {
           <Logo />
           <OnAtLeastTablet>
             <div className="ml-10">
-              <Button url="equipos">Equipos</Button>
-              <Button url="repuestos">Repuestos</Button>
+              <Navigation />
             </div>
           </OnAtLeastTablet>
         </div>
@@ -49,7 +44,7 @@ const Header = props => {
           onMouseLeave={handleToggle}
         >
           <div className="profile__avatar flex items-center justify-center bg-yellow-500 uppercase text-white rounded-full w-10 h-10">
-            {username()}
+            {getAcronymUsername()}
           </div>
           <div className="relative text-sm py-3">
             <OnAtLeastTablet>
@@ -64,11 +59,13 @@ const Header = props => {
                 toggle ? 'visible' : 'invisible'
               }`}
             >
-              Cerrar sesión{' '}
-              <FontAwesomeIcon
-                icon={faSignOutAlt}
-                className="text-yellow-500 ml-2"
-              />
+              <button onClick={handleLogout}>
+                Cerrar sesión{' '}
+                <FontAwesomeIcon
+                  icon={faSignOutAlt}
+                  className="text-yellow-500 ml-2"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -81,4 +78,4 @@ Header.propTypes = {
   name: Proptypes.string.isRequired
 };
 
-export default Header;
+export default withRouter(Header);

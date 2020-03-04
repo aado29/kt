@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../../Hero/Hero';
 import Navigation from 'components/Navigation/Navigation';
-import { OnMobile } from 'utils/LayoutGenerator';
+import { OnMobile } from 'utils/layoutGenerator';
 
 import bgEquipment from 'assets/images/bg-equipment.2x.min.png';
 import logo1 from 'assets/images/logos/CMA.1x.min.png';

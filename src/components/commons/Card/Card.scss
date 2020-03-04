@@ -4,7 +4,6 @@ $yellow: #eaaa00;
   @media (min-width: 768px) {
     height: 430px;
   }
-  position: relative;
 
   &::before {
     background-color: #0e1271;
@@ -36,7 +35,7 @@ $yellow: #eaaa00;
     }
   }
 
-  &__button {
+  .btn {
     position: relative;
     z-index: 1;
   }
@@ -60,7 +59,7 @@ $yellow: #eaaa00;
       overflow: visible;
     }
 
-    .card__button {
+    .btn {
       @media (min-width: 1024px) {
         background-color: $yellow;
         border-color: $yellow;

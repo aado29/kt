@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../../Hero/Hero';
 import Navigation from 'components/Navigation/Navigation';
-import { OnMobile } from 'utils/LayoutGenerator';
+import { OnMobile } from 'utils/layoutGenerator';
 
 import bgParts from 'assets/images/bg-parts.2x.min.png';
 import logo1 from 'assets/images/logos/DHL.1x.min.png';
