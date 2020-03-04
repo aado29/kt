@@ -6,7 +6,7 @@ import { OnMobile } from 'utils/layoutGenerator';
 import bgParts from 'assets/images/bg-parts.2x.min.png';
 import logo1 from 'assets/images/logos/DHL.1x.min.png';
 import logo2 from 'assets/images/logos/Fedex.1x.min.png';
-import logo3 from '../../../assets/images/logos/UPS.min.svg';
+import logo3 from 'assets/images/logos/Ups.min.svg';
 
 const Parts = () => {
   const logos = [{ logo: logo1 }, { logo: logo2 }, { logo: logo3 }];
