@@ -7,8 +7,8 @@ const Button = ({ children, url }) => {
   return (
     <NavLink
       to={`/${url}`}
-      className="transition duration-300 ease-in-out bg-gray-300 text-gray-500 hover:bg-blue-500 hover:text-white py-3 px-6 rounded mx-2 leading-6"
-      activeClassName="bg-blue-500 text-white"
+      className="navlink transition duration-300 ease-in-out bg-gray-300 text-gray-500 hover:bg-blue-500 hover:text-white py-3 px-6 md:rounded md:mx-2 leading-6 w-1/2 md:w-auto text-center"
+      activeClassName="bg-blue-500 text-white active"
     >
       {children}
     </NavLink>
