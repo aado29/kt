@@ -1,11 +1,11 @@
 import React from 'react';
 import Hero from '../../Hero/Hero';
 
-import bgEquipment from 'assets/images/bg-equipment.png';
-import logo1 from 'assets/images/logos/CMA.png';
-import logo2 from 'assets/images/logos/K-Line.png';
-import logo3 from 'assets/images/logos/NYK.png';
-import logo4 from 'assets/images/logos/Wallenius.png';
+import bgEquipment from 'assets/images/bg-equipment.2x.min.png';
+import logo1 from 'assets/images/logos/CMA.1x.min.png';
+import logo2 from 'assets/images/logos/Kline.min.svg';
+import logo3 from 'assets/images/logos/NYK.1x.min.png';
+import logo4 from 'assets/images/logos/Wallenius.1x.min.png';
 
 const Equipment = () => {
   const logos = [

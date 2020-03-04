@@ -27,5 +27,39 @@ module.exports = {
   variants: {
     display: ['responsive', 'hover', 'focus']
   },
-  plugins: []
+  plugins: [
+    function({ addComponents, theme }) {
+      const button = {
+        '.btn': {
+          alignItems: 'center',
+          border: '1px solid transparent',
+          borderRadius: '9999px',
+          display: 'inline-flex',
+          fontSize: '0.875rem',
+          fontWeight: 'bold',
+          height: '50px',
+          justifyContent: 'center',
+          letterSpacing: '1px',
+          paddingBottom: '1rem',
+          paddingTop: '1rem',
+          textTransform: 'uppercase',
+          transition: 'all 0.3s ease-out',
+          '-moz-osx-font-smoothing': 'grayscale',
+          '-webkit-font-smoothing': 'antialiased',
+
+          '&:disabled': {
+            cursor: 'not-allowed',
+            opacity: '0.5'
+          },
+          '@media (min-width: 1024px)': {
+            border: '1px solid white',
+            paddingLeft: '4rem',
+            paddingRight: '4rem',
+          }
+        }
+      };
+
+      addComponents(button);
+    }
+  ]
 };

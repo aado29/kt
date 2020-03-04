@@ -1,10 +1,10 @@
 import React from 'react';
 import Hero from '../../Hero/Hero';
 
-import bgParts from 'assets/images/bg-parts.png';
-import logo1 from 'assets/images/logos/dhl.min.svg';
-import logo2 from 'assets/images/logos/fedex.min.svg';
-import logo3 from 'assets/images/logos/ups.min.svg';
+import bgParts from 'assets/images/bg-parts.2x.min.png';
+import logo1 from 'assets/images/logos/DHL.1x.min.png';
+import logo2 from 'assets/images/logos/Fedex.1x.min.png';
+import logo3 from 'assets/images/logos/UPS.min.svg';
 
 const Parts = () => {
   const logos = [

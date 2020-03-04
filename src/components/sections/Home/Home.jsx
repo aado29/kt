@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-import bgParts from '../../../assets/images/bg-equipment.png';
-import bgEquipment from '../../../assets/images/bg-parts.png';
+import bgEquipment from '../../../assets/images/bg-equipment.1x.min.png';
+import bgParts from '../../../assets/images/bg-parts.1x.min.png';
 import Card from '../../commons/Card/Card';
 import CardTitle from '../../commons/CardTitle/CardTitle';
 
 const Home = () => {
-  const [isHover, setIsHover] = useState(false);
-  const handleHover = () => {
-    setIsHover(!isHover);
-  };
-
   return (
     <section className="container flex flex-col md:flex-row max-w-6xl mx-auto md:py-20">
       <div className="md:w-1/2">
@@ -27,7 +22,7 @@ const Home = () => {
           </p>
           <Link
             to="/equipos"
-            className="card__button transition duration-300 ease py-4 lg:px-16 text-sm uppercase font-bold rounded-full lg:border border-solid border-white"
+            className="btn"
           >
             Ver más{' '}
             <FontAwesomeIcon icon={faArrowRight} className="card__icon ml-2" />
@@ -45,7 +40,7 @@ const Home = () => {
           </p>
           <Link
             to="/repuestos"
-            className="card__button transition duration-300 ease py-4 lg:px-16 text-sm uppercase font-bold rounded-full lg:border border-solid border-white"
+            className="btn"
           >
             Ver más{' '}
             <FontAwesomeIcon icon={faArrowRight} className="card__icon ml-2" />
