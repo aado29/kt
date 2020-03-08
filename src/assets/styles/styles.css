@@ -618,8 +618,6 @@ video {
   height: 50px;
   justify-content: center;
   letter-spacing: 1px;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
   text-transform: uppercase;
   transition: all 0.3s ease-out;
   -moz-osx-font-smoothing: grayscale;
