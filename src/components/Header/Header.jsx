@@ -24,6 +24,7 @@ const Header = props => {
   };
 
   const handleLogout = () => {
+    // TODO logout
     props.history.push('/login');
   };
 
