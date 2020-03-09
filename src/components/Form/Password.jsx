@@ -21,14 +21,14 @@ const PasswordForm = props => {
         className="form bg-white shadow-md"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="form__header flex justify-center py-8 md:py-12 border-b border-gray-300">
+        <div className="form__header flex md:justify-center px-4 py-8 md:py-12 border-b border-gray-300">
           <Logo />
         </div>
-        <div className="form__body p-4 pb-20 md:pt-8 md:px-20">
-          <div className="text-xl text-blue-500 text-center mb-3">
+        <div className="form__body px-4 pb-20 pt-8 md:px-20">
+          <div className="text-lg text-blue-500 md:text-center mb-3">
             He olvidado mi contraseña
           </div>
-          <div className="text-xs text-center mb-8">
+          <div className="text-xs md:text-center mb-8">
             Ingresa tu correo electrónico y te enviaremos las instrucciones de
             recuperación
           </div>
@@ -37,7 +37,7 @@ const PasswordForm = props => {
               <FontAwesomeIcon icon={faEnvelope} className="text-yellow-500" />
             </span>
             <input
-              className="w-full pl-10 py-3 border border-gray-500 rounded"
+              className="w-full pl-10 py-3 border border-gray-500 rounded  focus:outline-none focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
               type="email"
               placeholder="Correo electrónico"
               id="email"
@@ -54,7 +54,7 @@ const PasswordForm = props => {
               Enviar
             </button>
             <Link
-              className="inline-block text-center underline text-sm text-gray-500 hover:text-blue-500"
+              className="inline-block text-center underline text-sm text-gray-500 hover:text-blue-500 focus:outline-none focus:shadow-outline"
               to="/login"
             >
               Volver atrás

@@ -23,18 +23,18 @@ const LoginForm = props => {
         className="form bg-white shadow-md"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="form__header flex justify-center py-8 md:py-12 border-b border-gray-300">
+        <div className="form__header flex md:justify-center px-4 py-8 md:py-12 border-b border-gray-300">
           <Logo />
         </div>
-        <div className="form__body p-4 pb-20 md:pt-8 md:px-20">
-          <div className="text-xl text-blue-500 text-center mb-3">
+        <div className="form__body p-4 pb-20 pt-8 md:px-20">
+          <div className="text-lg text-blue-500 md:text-center mb-3">
             Inicia sesión
           </div>
-          <div className="text-xs text-center mb-8">
+          <div className="text-xs md:text-center mb-8">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </div>
           <div className="mb-6">
-            <div className="relative flex items-center mb-2">
+            <div className="relative flex items-center mb-1">
               <span className="ml-3 absolute text-blue-800 pointer-events-none">
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -42,7 +42,7 @@ const LoginForm = props => {
                 />
               </span>
               <input
-                className="w-full pl-10 py-3 border border-gray-500 rounded"
+                className="w-full pl-10 py-3 border border-gray-500 rounded focus:outline-none focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
                 type="email"
                 placeholder="Correo electrónico"
                 id="email"
@@ -55,12 +55,12 @@ const LoginForm = props => {
             </p>
           </div>
           <div className="mb-6">
-            <div className="relative flex items-center mb-2">
+            <div className="relative flex items-center mb-1">
               <span className="ml-3 absolute text-blue-800 pointer-events-none">
                 <FontAwesomeIcon icon={faLock} className="text-yellow-500" />
               </span>
               <input
-                className="w-full pl-10 py-3 border border-gray-500 rounded"
+                className="w-full pl-10 py-3 border border-gray-500 rounded  focus:outline-none focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
                 type="password"
                 placeholder="Contraseña"
                 id="password1"
@@ -74,13 +74,13 @@ const LoginForm = props => {
           </div>
           <div className="flex flex-col">
             <Link
-              className="underline text-sm text-gray-500 hover:text-blue-500 mb-6"
+              className="underline text-sm text-gray-500 hover:text-blue-500 mb-6 focus:outline-none focus:shadow-outline"
               to="/password-recovery"
             >
               He olvidado mi contraseña
             </Link>
             <button
-              className="btn border-yellow-500 bg-yellow-500 text-white"
+              className="btn border-yellow-500 bg-yellow-500 text-white focus:outline-none focus:shadow-outline"
               type="submit"
               disabled={!formState.isValid}
             >
