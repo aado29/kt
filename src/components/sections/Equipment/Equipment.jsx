@@ -24,10 +24,6 @@ const Equipment = () => {
           return { id: e.id, name: e.name, status: e.status, gender: e.gender };
         })
       );
-      console.log('data:', data);
-      // const data = data.map(e => {
-      //   return { id: e.id, name: e.name, status: e.status, gender: e.gender };
-      // });
     })();
   }, []);
 
