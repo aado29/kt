@@ -40,9 +40,12 @@ const Header = props => {
           </OnAtLeastTablet>
         </div>
         <div
-          className="profile flex items-center hover:text-blue-500 cursor-pointer"
-          onMouseEnter={handleToggle}
-          onMouseLeave={handleToggle}
+          role="button"
+          aria-pressed="true"
+          tabindex="0"
+          className="profile flex items-center hover:text-blue-500 cursor-pointer focus:outline-none focus:shadow-outline"
+          onClick={handleToggle}
+          onKeyDown={handleToggle}
         >
           <div className="profile__avatar flex items-center justify-center bg-yellow-500 uppercase text-white rounded-full w-10 h-10">
             {getAcronymUsername()}
