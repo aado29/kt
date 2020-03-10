@@ -42,7 +42,7 @@ const LoginForm = props => {
                 />
               </span>
               <input
-                className="w-full pl-10 py-3 border border-gray-500 rounded focus:outline-none focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
+                className="w-full pl-10 py-3 border border-gray-500 rounded focus:outline-none focus:shadow-outline focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
                 type="email"
                 placeholder="Correo electrónico"
                 id="email"
@@ -60,7 +60,7 @@ const LoginForm = props => {
                 <FontAwesomeIcon icon={faLock} className="text-yellow-500" />
               </span>
               <input
-                className="w-full pl-10 py-3 border border-gray-500 rounded  focus:outline-none focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
+                className="w-full pl-10 py-3 border border-gray-500 rounded  focus:outline-none focus:shadow-outline focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
                 type="password"
                 placeholder="Contraseña"
                 id="password1"

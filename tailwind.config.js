@@ -21,6 +21,9 @@ module.exports = {
         yellow: {
           500: '#EAAA00'
         }
+      },
+      boxShadow: {
+        outline: '0 0 0 3px rgba(14,18,113,.5)'
       }
     }
   },
@@ -52,7 +55,7 @@ module.exports = {
           '@media (min-width: 1024px)': {
             border: '1px solid white',
             paddingLeft: '4rem',
-            paddingRight: '4rem',
+            paddingRight: '4rem'
           }
         }
       };

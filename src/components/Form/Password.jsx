@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Logo from 'components/commons/Logo/Logo';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,7 +37,7 @@ const PasswordForm = props => {
               <FontAwesomeIcon icon={faEnvelope} className="text-yellow-500" />
             </span>
             <input
-              className="w-full pl-10 py-3 border border-gray-500 rounded  focus:outline-none focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
+              className="w-full pl-10 py-3 border border-gray-500 rounded focus:outline-none focus:shadow-outline focus:border-blue-500 focus:text-blue-500 focus:placeholder-blue-500"
               type="email"
               placeholder="Correo electrónico"
               id="email"
@@ -47,7 +47,7 @@ const PasswordForm = props => {
           </div>
           <div className="flex flex-col">
             <button
-              className="btn mb-6 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500"
+              className="btn mb-6 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 focus:outline-none focus:shadow-outline"
               type="submit"
               disabled={!formState.isValid}
             >

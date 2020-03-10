@@ -12,7 +12,7 @@ const Footer = () => {
         <p>
           <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
           Contáctanos{' '}
-          <a href="mailto:contacto@ejemplo.com" className="mx-2 underline">
+          <a href="mailto:contacto@ejemplo.com" className="mx-2 underline focus:outline-none focus:shadow-outline">
             contacto@ejemplo.com
           </a>
         </p>

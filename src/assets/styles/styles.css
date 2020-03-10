@@ -6341,7 +6341,7 @@ video {
 }
 
 .shadow-outline{
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  box-shadow: 0 0 0 3px rgba(14,18,113,.5);
 }
 
 .shadow-none{
@@ -6381,7 +6381,7 @@ video {
 }
 
 .hover\:shadow-outline:hover{
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  box-shadow: 0 0 0 3px rgba(14,18,113,.5);
 }
 
 .hover\:shadow-none:hover{
@@ -6421,7 +6421,7 @@ video {
 }
 
 .focus\:shadow-outline:focus{
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  box-shadow: 0 0 0 3px rgba(14,18,113,.5);
 }
 
 .focus\:shadow-none:focus{
@@ -15888,7 +15888,7 @@ video {
   }
 
   .sm\:shadow-outline{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .sm\:shadow-none{
@@ -15928,7 +15928,7 @@ video {
   }
 
   .sm\:hover\:shadow-outline:hover{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .sm\:hover\:shadow-none:hover{
@@ -15968,7 +15968,7 @@ video {
   }
 
   .sm\:focus\:shadow-outline:focus{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .sm\:focus\:shadow-none:focus{
@@ -25436,7 +25436,7 @@ video {
   }
 
   .md\:shadow-outline{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .md\:shadow-none{
@@ -25476,7 +25476,7 @@ video {
   }
 
   .md\:hover\:shadow-outline:hover{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .md\:hover\:shadow-none:hover{
@@ -25516,7 +25516,7 @@ video {
   }
 
   .md\:focus\:shadow-outline:focus{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .md\:focus\:shadow-none:focus{
@@ -34984,7 +34984,7 @@ video {
   }
 
   .lg\:shadow-outline{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .lg\:shadow-none{
@@ -35024,7 +35024,7 @@ video {
   }
 
   .lg\:hover\:shadow-outline:hover{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .lg\:hover\:shadow-none:hover{
@@ -35064,7 +35064,7 @@ video {
   }
 
   .lg\:focus\:shadow-outline:focus{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .lg\:focus\:shadow-none:focus{
@@ -44532,7 +44532,7 @@ video {
   }
 
   .xl\:shadow-outline{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .xl\:shadow-none{
@@ -44572,7 +44572,7 @@ video {
   }
 
   .xl\:hover\:shadow-outline:hover{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .xl\:hover\:shadow-none:hover{
@@ -44612,7 +44612,7 @@ video {
   }
 
   .xl\:focus\:shadow-outline:focus{
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 0 3px rgba(14,18,113,.5);
   }
 
   .xl\:focus\:shadow-none:focus{
