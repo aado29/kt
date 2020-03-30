@@ -4,3 +4,10 @@ body {
   font-family: 'Open Sans', sans-serif;
   min-height: 100vh;
 }
+
+.page {
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+  width: 100%;
+}

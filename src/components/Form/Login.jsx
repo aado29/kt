@@ -1,21 +1,25 @@
 import React from 'react';
-import Logo from 'components/commons/Logo/Logo';
 import { withRouter } from 'react-router-dom';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { authIsLoading } from './../../redux/selectors/auth';
+import { auth } from './../../redux/actions/auth';
+
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Logo from 'components/commons/Logo/Logo';
 
 const LoginForm = props => {
   const { register, errors, handleSubmit, formState } = useForm({
     mode: 'onChange'
   });
 
-  const onSubmit = data => {
-    console.log(data);
-    // TODO Login Office 365
-    props.history.push('/');
-  };
+  const dispatch = useDispatch();
+  const authLoadingState = useSelector(authIsLoading);
+
+  const onSubmit = data => dispatch(auth(data));
 
   return (
     <div className="w-full max-w-lg">
@@ -82,9 +86,9 @@ const LoginForm = props => {
             <button
               className="btn border-yellow-500 bg-yellow-500 text-white focus:outline-none focus:shadow-outline"
               type="submit"
-              disabled={!formState.isValid}
+              disabled={!formState.isValid || authLoadingState}
             >
-              Iniciar Sesión
+              { authLoadingState ? 'Iniciando...' : 'Iniciar Sesión'}
             </button>
           </div>
         </div>

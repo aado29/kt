@@ -1,6 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthenticatedRoute, UnauthenticatedRoute } from './components/Route';
+import { getCookie } from './utils/cookies';
+
+import { authSuccess } from './redux/actions/auth';
+
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Footer from 'components/Footer/Footer';
 import LoginView from './views/login/LoginView';
 import PasswordView from './views/login/PasswordView';
@@ -9,20 +17,38 @@ import HomeView from './views/home/HomeView';
 import EquipmentView from './views/equipment/EquipmentView';
 import PartsView from './views/parts/PartsView';
 
-function App() {
+let authToken = process.env.REACT_APP_AUTH_TOKEN;
+
+const App = ({ store }) => {
+  authToken = getCookie(authToken);
+
+  if (!!authToken && authToken !== 'null') {
+    store.dispatch(authSuccess({
+      access_token: authToken,
+    }));
+  }
+
   return (
-    <Router>
-      <div className="App">
-        <Route exact path="/" component={HomeView} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/password-recovery" component={PasswordView} />
-        <Route path="/password-send" component={PasswordSendView} />
-        <Route path="/equipos" component={EquipmentView} />
-        <Route path="/repuestos" component={PartsView} />
-        <Footer />
-      </div>
-    </Router>
+    <Provider store={store}>
+      {<Router>
+        <div className="App flex flex-col min-h-screen">
+          <div className="flex flex-grow">
+            <AuthenticatedRoute exact path="/" component={HomeView} />
+            <UnauthenticatedRoute path="/login" component={LoginView} />
+            <UnauthenticatedRoute path="/password-recovery" component={PasswordView} />
+            <UnauthenticatedRoute path="/password-send" component={PasswordSendView} />
+            <AuthenticatedRoute path="/equipos" component={EquipmentView} />
+            <AuthenticatedRoute path="/repuestos" component={PartsView} />
+          </div>
+          <Footer />
+        </div>
+      </Router>}
+    </Provider>
   );
-}
+};
+
+App.propTypes = {
+	store: PropTypes.object.isRequired
+};
 
 export default App;
