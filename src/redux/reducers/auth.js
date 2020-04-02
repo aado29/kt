@@ -5,6 +5,7 @@ import {
   AUTH_GET_USER_REQUEST,
   AUTH_GET_USER_SUCCESS,
   AUTH_GET_USER_ERROR,
+  AUTH_LOGOUT,
 } from './../../consts';
 
 const initialState = {};
@@ -23,6 +24,8 @@ export default (state = initialState, action) => {
       return { ...state, isFetching: false, user: action.payload, loggedIn: true };
     case AUTH_GET_USER_ERROR:
       return { ...state, isFetching: false, error: action.payload };
+    case AUTH_LOGOUT:
+      return { ...state, loggedIn: false };
     default:
       return { ...state };
   };

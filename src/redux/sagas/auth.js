@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { AUTH_REQUEST, AUTH_SUCCESS } from './../../consts';
+import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_LOGOUT } from './../../consts';
 import { authSuccess, authError, authGetUser, authGetUserSuccess, authGetUserError } from './../actions/auth';
 import apiService from '../../services/apiService';
 import { setCookie } from './../../utils/cookies';
@@ -27,7 +27,7 @@ function* getAuthUser() {
 
   try {
     const user = yield call(apiService, {
-      method: 'POST',
+      method: 'GET',
       url: '/me'
     });
     yield put(authGetUserSuccess(user.data.data))
@@ -37,7 +37,12 @@ function* getAuthUser() {
   }
 }
 
+function* logout() {
+  yield call(setCookie, authToken, null, tokenExpirationHours);
+}
+
 export default function* auth() {
   yield takeLatest(AUTH_REQUEST, initAuth);
   yield takeLatest(AUTH_SUCCESS, getAuthUser);
+  yield takeLatest(AUTH_LOGOUT, logout);
 };

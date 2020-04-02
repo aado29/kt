@@ -5,6 +5,7 @@ import {
   AUTH_GET_USER_REQUEST,
   AUTH_GET_USER_SUCCESS,
   AUTH_GET_USER_ERROR,
+  AUTH_LOGOUT,
 } from './../../consts';
 
 export const auth = payload => ({
@@ -34,5 +35,10 @@ export const authGetUserSuccess = payload => ({
 
 export const authGetUserError = payload => ({
   type: AUTH_GET_USER_ERROR,
+  payload,
+});
+
+export const authLogout = payload => ({
+  type: AUTH_LOGOUT,
   payload,
 });

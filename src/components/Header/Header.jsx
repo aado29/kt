@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
-import Proptypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Logo from 'components/commons/Logo/Logo';
 import Navigation from 'components/Navigation/Navigation';
 import { OnAtLeastTablet } from 'utils/layoutGenerator';
 import { faChevronDown, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { authLogout } from './../../redux/actions/auth';
 import { authUserData } from './../../redux/selectors/auth';
 
 const Header = props => {
+  const dispatch = useDispatch();
   const { withOutNav } = props;
 
   const [toggle, setToggle] = useState(false);
   const userData = useSelector(authUserData);
-  const fullName = userData && userData.first_name ? userData.first_name + userData.last_name : 'Usuario';
+  const fullName = userData && userData.first_name ? `${userData.first_name} ${userData.last_name}` : 'Usuario';
 
   const handleToggle = (value) => {
-    if (value !== null) {
+    if (value !== false || value !== true) {
       setToggle(value);
       return;
     }
@@ -31,10 +32,7 @@ const Header = props => {
     return acronym;
   };
 
-  const handleLogout = () => {
-    // TODO logout
-    props.history.push('/login');
-  };
+  const handleLogout = () => dispatch(authLogout());
 
   return (
     <header className="bg-white">
@@ -52,10 +50,9 @@ const Header = props => {
         <div
           role="button"
           aria-pressed="true"
-          tabIndex="0"
+          tabIndex="-1"
           className="profile flex items-center hover:text-blue-500 cursor-pointer focus:outline-none"
           onClick={handleToggle}
-          onKeyDown={handleToggle}
           onBlur={() => handleToggle(false)}
         >
           <div className="profile__avatar flex items-center justify-center bg-yellow-500 uppercase text-white rounded-full w-10 h-10">
@@ -76,23 +73,19 @@ const Header = props => {
                 toggle ? 'visible' : 'invisible'
               }`}
             >
-              <button className="whitespace-no-wrap" onClick={handleLogout}>
+              <div role="button" className="whitespace-no-wrap" onClick={handleLogout}>
                 Cerrar sesión
                 <FontAwesomeIcon
                   icon={faSignOutAlt}
                   className="text-yellow-500 ml-2"
                 />
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  name: Proptypes.string.isRequired
 };
 
 export default withRouter(Header);
