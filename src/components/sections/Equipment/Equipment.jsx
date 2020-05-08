@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import apiService from './../../../services/apiService';
 import Hero from '../../Hero/Hero';
 import Navigation from 'components/Navigation/Navigation';
 import { OnMobile } from 'utils/layoutGenerator';
@@ -16,7 +16,10 @@ const Equipment = () => {
 
   useEffect(() => {
     (async () => {
-      const resp = await axios('https://rickandmortyapi.com/api/character/');
+      const resp = await apiService({
+        method: 'get',
+        url: 'https://rickandmortyapi.com/api/character/',
+      });
       console.log('results:', resp.data.results);
       // setData(resp.data.results);
       setData(
