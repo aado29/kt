@@ -4,6 +4,7 @@ import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_LOGOUT } from './../../consts';
 import { authSuccess, authError, authGetUser, authGetUserSuccess, authGetUserError } from './../actions/auth';
 import apiService from '../../services/apiService';
 import { setCookie } from './../../utils/cookies';
+import parseJwt from './../../utils/parseJwt';
 
 const authToken = process.env.REACT_APP_AUTH_TOKEN;
 const tokenExpirationHours = process.env.REACT_APP_TOKEN_EXPIRATION_HOURS;
@@ -12,11 +13,11 @@ function* initAuth({ payload }) {
   try {
     const auth = yield call(apiService, {
       method: 'POST',
-      url: '/auth/login',
+      url: '/login',
       data: payload
     });
-    yield call(setCookie, authToken, auth.data.data.access_token, tokenExpirationHours);
-    yield put(authSuccess(auth.data.data));
+    yield call(setCookie, authToken, auth.data.token, parseJwt(auth.data.token).exp);
+    yield put(authSuccess(auth.data));
   } catch (e) {
     yield put(authError(e));
   }

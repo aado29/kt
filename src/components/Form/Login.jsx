@@ -51,6 +51,7 @@ const LoginForm = props => {
                 placeholder="Correo electrónico"
                 id="email"
                 name="email"
+                value="ajara@meatcode.cl"
                 ref={register({ required: true })}
               />
             </div>
@@ -69,6 +70,7 @@ const LoginForm = props => {
                 placeholder="Contraseña"
                 id="password1"
                 name="password"
+                value="beafsteak"
                 ref={register({ required: true, minLength: 6 })}
               />
             </div>
