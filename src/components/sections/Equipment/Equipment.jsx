@@ -20,6 +20,15 @@ const Equipment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pagination, setPagination] = useState(null);
+  const [filtersData, setFiltersData] = useState({});
+
+  const initializeFilters = () => {
+    const filters = {};
+    columns.forEach((column) => {
+      filters[column] = null;
+    });
+    setFiltersData(filters);
+  };
 
   const getDataTable = () => {
     setIsLoading(true);
@@ -42,6 +51,34 @@ const Equipment = () => {
       });
   };
 
+  const handleChangeFilters = (filterKey, value) => {
+    const filters = { ...filtersData, [filterKey]: value };
+    setFiltersData(filters);
+    console.log(filters);
+  };
+
+  const handleClickPagination = (indexPagination) => {
+    setCurrentPage(indexPagination);
+  };
+
+  const handleClearFilters = () => {
+    initializeFilters();
+  };
+
+  const logos = [
+    { logo: logo1 },
+    { logo: logo2 },
+    { logo: logo3 },
+    { logo: logo4 }
+  ];
+
+  const options = {
+    filterType: 'checkbox',
+    // responsive: 'stackedFullWidthFullHeight'
+  };
+
+  useEffect(initializeFilters, [columns]);
+
   useEffect(getDataTable, [currentPage]);
 
   useEffect(() => {
@@ -58,26 +95,6 @@ const Equipment = () => {
       return item;
     })
   }, [data]);
-
-  const handleClickPagination = (indexPagination) => {
-    setCurrentPage(indexPagination);
-  };
-
-  const handleChangeFilters = (filters) => {
-    console.log(filters);
-  };
-
-  const logos = [
-    { logo: logo1 },
-    { logo: logo2 },
-    { logo: logo3 },
-    { logo: logo4 }
-  ];
-
-  const options = {
-    filterType: 'checkbox',
-    // responsive: 'stackedFullWidthFullHeight'
-  };
   
   return (
     <>
@@ -95,7 +112,7 @@ const Equipment = () => {
         logos={logos}
       />
       { !isLoading && <>
-        <Filters name="equipment" columns={columns} onChange={ handleChangeFilters } />
+        <Filters name="equipment" filtersData={filtersData} onChange={ handleChangeFilters } onClear={handleClearFilters} />
         <Table data={data} columns={setColumnsName(columns)} options={options} />
         <Pagination { ...pagination } onClick={handleClickPagination} />
       </> }

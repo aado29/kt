@@ -1,43 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Filter from './Filter';
 
-const Filters = ({ columns, name, onChange }) => {
-  const [ filtersData, setFiltersData ] = useState({});
-
-  const initializeFilters = () => {
-    const filters = {};
-    columns.forEach((column) => {
-      filters[column] = null;
-    });
-    setFiltersData(filters);
-  };
-
-  useEffect(initializeFilters, []);
-
-  const handleChange = (filterKey, value) => {
-    const filters = { ...filtersData, [filterKey]: value };
-    setFiltersData(filters);
-    onChange(filters);
-  };
-
-  if (!columns || !columns.length) {
-    return null;
-  }
-
+const Filters = ({ filtersData, name, onChange, onClear }) => {
   return (
     <div className="bg-white pt-10 pb-8">
       <div className="container mx-auto px-5">
-        <div className="flex flex-wrap -mx-2">
+        <div className="flex flex-wrap items-end -mx-2">
           { Object.keys(filtersData).map((filterKey) => (
             <div className="w-full md:w-1/5 px-2 mb-4" key={filterKey}>
               <Filter
                 activeFilters={filtersData}
                 name={name}
                 filterKey={filterKey}
-                onChange={ handleChange }
+                onChange={onChange}
               />
             </div>
           )) }
+          <div className="w-full md:w-1/5 px-2 mb-4">
+            <button type="button" onClick={onClear} className="text-gray-800 text-sm leading-loose py-2 px-3">
+              Limpiar filtros
+            </button>
+          </div>
         </div>
       </div>
     </div>
