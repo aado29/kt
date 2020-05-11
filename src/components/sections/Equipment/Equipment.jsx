@@ -6,25 +6,13 @@ import { OnMobile } from 'utils/layoutGenerator';
 import Table from 'components/Table';
 import Pagination from 'components/commons/Pagination';
 import Filters from 'components/commons/Filters';
+import { setColumnsName } from './../../../utils/table';
 
 import bgEquipment from 'assets/images/bg-equipment.2x.min.png';
 import logo1 from 'assets/images/logos/CMA.1x.min.png';
 import logo2 from '../../../assets/images/logos/Kline.min.svg';
 import logo3 from 'assets/images/logos/NYK.1x.min.png';
 import logo4 from 'assets/images/logos/Wallenius.1x.min.png';
-
-const setColumnsName = (columns) => {
-  return columns.map((column) => {
-    return {
-      name: column,
-      label: column,
-      options: {
-        filter: false,
-        sort: false,
-      },
-    };
-  });
-};
 
 const Equipment = () => {
   const [data, setData] = useState([]);

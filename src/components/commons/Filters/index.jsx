@@ -29,10 +29,9 @@ const Filters = ({ columns, name, onChange }) => {
       <div className="container mx-auto px-5">
         <div className="flex flex-wrap -mx-2">
           { Object.keys(filtersData).map((filterKey) => (
-            <div className="w-full md:w-1/4 px-2 mb-4" key={filterKey}>
+            <div className="w-full md:w-1/5 px-2 mb-4" key={filterKey}>
               <Filter
                 activeFilters={filtersData}
-                value={filtersData[filterKey]}
                 name={name}
                 filterKey={filterKey}
                 onChange={ handleChange }
