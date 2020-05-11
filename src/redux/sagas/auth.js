@@ -31,7 +31,7 @@ function* getAuthUser() {
       method: 'GET',
       url: '/me'
     });
-    yield put(authGetUserSuccess(user.data.data))
+    yield put(authGetUserSuccess(user.data))
   } catch (e) {
     yield call(setCookie, authToken, null, tokenExpirationHours);
     yield put(authGetUserError(e));

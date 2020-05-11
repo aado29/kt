@@ -16,7 +16,7 @@ const Header = props => {
 
   const [toggle, setToggle] = useState(false);
   const userData = useSelector(authUserData);
-  const fullName = userData && userData.first_name ? `${userData.first_name} ${userData.last_name}` : 'Usuario';
+  const fullName = userData && userData.name ? `${userData.name} ${userData.lastname}` : 'Usuario';
 
   const handleToggle = (value) => {
     if (value !== false || value !== true) {
