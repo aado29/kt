@@ -4,6 +4,8 @@ import Hero from '../../Hero/Hero';
 import Navigation from 'components/Navigation/Navigation';
 import { OnMobile } from 'utils/layoutGenerator';
 import Table from 'components/Table';
+import Pagination from 'components/commons/Pagination';
+import Filters from 'components/commons/Filters';
 
 import bgEquipment from 'assets/images/bg-equipment.2x.min.png';
 import logo1 from 'assets/images/logos/CMA.1x.min.png';
@@ -11,24 +13,71 @@ import logo2 from '../../../assets/images/logos/Kline.min.svg';
 import logo3 from 'assets/images/logos/NYK.1x.min.png';
 import logo4 from 'assets/images/logos/Wallenius.1x.min.png';
 
+const setColumnsName = (columns) => {
+  return columns.map((column) => {
+    return {
+      name: column,
+      label: column,
+      options: {
+        filter: false,
+        sort: false,
+      },
+    };
+  });
+};
+
 const Equipment = () => {
   const [data, setData] = useState([]);
+  const [columns, setColumns] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pagination, setPagination] = useState(null);
+
+  const getDataTable = () => {
+    setIsLoading(true);
+    apiService({
+      method: 'get',
+      url: '/equipment',
+      params: {
+        page: currentPage,
+      },
+    })
+      .then((data) => {
+        const dataTable = data.data.data;
+        delete data.data.data;
+        const pagination = data.data;
+        setData(dataTable);
+        setPagination(pagination);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  useEffect(getDataTable, [currentPage]);
 
   useEffect(() => {
-    (async () => {
-      const resp = await apiService({
-        method: 'get',
-        url: 'https://rickandmortyapi.com/api/character/',
-      });
-      console.log('results:', resp.data.results);
-      // setData(resp.data.results);
-      setData(
-        resp.data.results.map(e => {
-          return { id: e.id, name: e.name, status: e.status, gender: e.gender };
-        })
-      );
-    })();
-  }, []);
+    data.map((item, indexItem) => {
+      if (indexItem === 0) {
+        let keys = [];
+        Object.keys(item).forEach((key) => {
+          if (key !== 'id' && key !== 'created_at' && key !== 'updated_at' && key !== 'invoice_pdf') {
+            keys = keys.concat(key);
+          }
+        });
+        setColumns(keys);
+      }
+      return item;
+    })
+  }, [data]);
+
+  const handleClickPagination = (indexPagination) => {
+    setCurrentPage(indexPagination);
+  };
+
+  const handleChangeFilters = (filters) => {
+    console.log(filters);
+  };
 
   const logos = [
     { logo: logo1 },
@@ -37,55 +86,11 @@ const Equipment = () => {
     { logo: logo4 }
   ];
 
-  const columns = ['id', 'Name', 'Status', 'Species', 'Gender', 'Origin'];
-
-  // const columns = [
-  //   {
-  //     name: data.id,
-  //     label: 'ID',
-  //     options: {
-  //       filter: true,
-  //       sort: true
-  //     }
-  //   },
-  //   {
-  //     name: data.name,
-  //     label: 'Company',
-  //     options: {
-  //       filter: true,
-  //       sort: false
-  //     }
-  //   },
-  //   {
-  //     name: data.status,
-  //     label: 'City',
-  //     options: {
-  //       filter: true,
-  //       sort: false
-  //     }
-  //   },
-  //   {
-  //     name: data.gender,
-  //     label: 'State',
-  //     options: {
-  //       filter: true,
-  //       sort: false
-  //     }
-  //   }
-  // ];
-
-  // const data = [
-  //   { name: 'Joe James', company: 'Test Corp', city: 'Yonkers', state: 'NY' },
-  //   { name: 'John Walsh', company: 'Test Corp', city: 'Hartford', state: 'CT' },
-  //   { name: 'Bob Herm', company: 'Test Corp', city: 'Tampa', state: 'FL' },
-  //   { name: 'James Houston', company: 'Test Corp', city: 'Dallas', state: 'TX' }
-  // ];
-
   const options = {
     filterType: 'checkbox',
-    responsive: 'stackedFullWidthFullHeight'
+    // responsive: 'stackedFullWidthFullHeight'
   };
-
+  
   return (
     <>
       <OnMobile>
@@ -101,7 +106,11 @@ const Equipment = () => {
       quis, rerum officiis ratione nobis."
         logos={logos}
       />
-      <Table data={data} columns={columns} options={options} />
+      { !isLoading && <>
+        <Filters name="equipment" columns={columns} onChange={ handleChangeFilters } />
+        <Table data={data} columns={setColumnsName(columns)} options={options} />
+        <Pagination { ...pagination } onClick={handleClickPagination} />
+      </> }
     </>
   );
 };
