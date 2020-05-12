@@ -6,7 +6,7 @@ import { OnMobile } from 'utils/layoutGenerator';
 import Table from 'components/Table';
 import Pagination from 'components/commons/Pagination';
 import Filters from 'components/commons/Filters';
-import { setColumnsName } from './../../../utils/table';
+import { setColumnsName, getFiltersParams } from './../../../utils/table';
 
 import bgEquipment from 'assets/images/bg-equipment.2x.min.png';
 import logo1 from 'assets/images/logos/CMA.1x.min.png';
@@ -36,6 +36,7 @@ const Equipment = () => {
       method: 'get',
       url: '/equipment',
       params: {
+        ...getFiltersParams(filtersData),
         page: currentPage,
       },
     })
@@ -51,10 +52,24 @@ const Equipment = () => {
       });
   };
 
+  const sanitizeColumns = () => {
+    data.map((item, indexItem) => {
+      if (indexItem === 0) {
+        let keys = [];
+        Object.keys(item).forEach((key) => {
+          if (key !== 'id' && key !== 'created_at' && key !== 'updated_at' && key !== 'invoice_pdf') {
+            keys = keys.concat(key);
+          }
+        });
+        setColumns(keys);
+      }
+      return item;
+    });
+  };
+
   const handleChangeFilters = (filterKey, value) => {
     const filters = { ...filtersData, [filterKey]: value };
     setFiltersData(filters);
-    console.log(filters);
   };
 
   const handleClickPagination = (indexPagination) => {
@@ -76,26 +91,11 @@ const Equipment = () => {
     filterType: 'checkbox',
     // responsive: 'stackedFullWidthFullHeight'
   };
-
-  useEffect(initializeFilters, [columns]);
-
-  useEffect(getDataTable, [currentPage]);
-
-  useEffect(() => {
-    data.map((item, indexItem) => {
-      if (indexItem === 0) {
-        let keys = [];
-        Object.keys(item).forEach((key) => {
-          if (key !== 'id' && key !== 'created_at' && key !== 'updated_at' && key !== 'invoice_pdf') {
-            keys = keys.concat(key);
-          }
-        });
-        setColumns(keys);
-      }
-      return item;
-    })
-  }, [data]);
   
+  useEffect(sanitizeColumns, [data]);
+  useEffect(initializeFilters, [columns]);
+  useEffect(getDataTable, [filtersData]);
+
   return (
     <>
       <OnMobile>

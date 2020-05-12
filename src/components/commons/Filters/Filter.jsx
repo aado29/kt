@@ -19,7 +19,7 @@ const Filter = ({ activeFilters, name, filterKey, onChange }) => {
     apiService({
       method: 'get',
       url: `/${name}/filter/${filterKey}`,
-      params
+      params,
     })
       .then((data) => {
         setFilterData(data.data);

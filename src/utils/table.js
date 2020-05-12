@@ -19,7 +19,20 @@ export const getLabelByKey = key => {
   return labels[key] ? labels[key] : key;
 };
 
+export const getFiltersParams = (filtersData) => {
+  const params = {};
+  Object.keys(filtersData).forEach((activeFilterKey) => {
+    const value = filtersData[activeFilterKey];
+    if (value) {
+      params[activeFilterKey] = [ value ];
+    }
+  });
+
+  return params;
+};
+
 export default {
   setColumnsName,
   getLabelByKey,
+  getFiltersParams,
 };
