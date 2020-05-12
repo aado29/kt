@@ -93,8 +93,8 @@ const Equipment = () => {
   };
   
   useEffect(sanitizeColumns, [data]);
-  useEffect(initializeFilters, [columns]);
-  useEffect(getDataTable, [filtersData]);
+  useEffect(initializeFilters, []);
+  useEffect(getDataTable, [currentPage, filtersData]);
 
   return (
     <>
