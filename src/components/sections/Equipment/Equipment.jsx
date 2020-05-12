@@ -22,12 +22,14 @@ const Equipment = () => {
   const [pagination, setPagination] = useState(null);
   const [filtersData, setFiltersData] = useState({});
 
-  const initializeFilters = () => {
+  const initializeFilters = (columns) => {
     const filters = {};
     columns.forEach((column) => {
       filters[column] = null;
     });
+      
     setFiltersData(filters);
+    
   };
 
   const getDataTable = () => {
@@ -45,6 +47,7 @@ const Equipment = () => {
         delete data.data.data;
         const pagination = data.data;
         setData(dataTable);
+        sanitizeColumns(dataTable)
         setPagination(pagination);
       })
       .finally(() => {
@@ -52,7 +55,7 @@ const Equipment = () => {
       });
   };
 
-  const sanitizeColumns = () => {
+  const sanitizeColumns = (data) => {
     data.map((item, indexItem) => {
       if (indexItem === 0) {
         let keys = [];
@@ -62,6 +65,7 @@ const Equipment = () => {
           }
         });
         setColumns(keys);
+        initializeFilters(keys);
       }
       return item;
     });
@@ -92,8 +96,8 @@ const Equipment = () => {
     // responsive: 'stackedFullWidthFullHeight'
   };
   
-  useEffect(sanitizeColumns, [data]);
-  useEffect(initializeFilters, []);
+  //useEffect(sanitizeColumns, [data]);
+  //useEffect(initializeFilters, [columns]);
   useEffect(getDataTable, [currentPage, filtersData]);
 
   return (
